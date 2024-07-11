@@ -1,9 +1,9 @@
 package com.matheusnovaisz.planner.trip;
 
-import com.matheusnovaisz.planner.activities.ActivityData;
-import com.matheusnovaisz.planner.activities.ActivityRequestPayload;
-import com.matheusnovaisz.planner.activities.ActivityResponse;
-import com.matheusnovaisz.planner.activities.ActivityService;
+import com.matheusnovaisz.planner.activity.ActivityData;
+import com.matheusnovaisz.planner.activity.ActivityRequestPayload;
+import com.matheusnovaisz.planner.activity.ActivityResponse;
+import com.matheusnovaisz.planner.activity.ActivityService;
 import com.matheusnovaisz.planner.participant.ParticipantCreateResponse;
 import com.matheusnovaisz.planner.participant.ParticipantData;
 import com.matheusnovaisz.planner.participant.ParticipantRequestPayload;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

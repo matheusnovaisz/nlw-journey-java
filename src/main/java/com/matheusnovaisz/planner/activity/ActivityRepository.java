@@ -1,4 +1,4 @@
-package com.matheusnovaisz.planner.activities;
+package com.matheusnovaisz.planner.activity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.matheusnovaisz.planner.activities;
+package com.matheusnovaisz.planner.activity;
 
 import com.matheusnovaisz.planner.trip.Trip;
 import org.springframework.beans.factory.annotation.Autowired;

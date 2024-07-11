@@ -1,4 +1,4 @@
-package com.matheusnovaisz.planner.activities;
+package com.matheusnovaisz.planner.activity;
 
 import java.util.UUID;
 
