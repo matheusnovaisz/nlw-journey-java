@@ -6,4 +6,4 @@ CREATE TABLE trips (
     is_confirmed BOOLEAN NOT NULL,
     owner_name VARCHAR(255) NOT NULL,
     owner_email VARCHAR(255) NOT NULL
-)
+);
