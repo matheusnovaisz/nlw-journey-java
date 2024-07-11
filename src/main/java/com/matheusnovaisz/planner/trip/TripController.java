@@ -1,6 +1,7 @@
 package com.matheusnovaisz.planner.trip;
 
 import com.matheusnovaisz.planner.participant.Participant;
+import com.matheusnovaisz.planner.participant.ParticipantCreateResponse;
 import com.matheusnovaisz.planner.participant.ParticipantData;
 import com.matheusnovaisz.planner.participant.ParticipantRequestPayload;
 import com.matheusnovaisz.planner.participant.ParticipantService;
@@ -80,24 +81,22 @@ public class TripController{
     }
 
     @PostMapping("/{id}/invite")
-    public ResponseEntity<Trip> inviteParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){
+    public ResponseEntity<ParticipantCreateResponse> inviteParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){
         Optional<Trip> trip = this.repository.findById(id);
 
         if(trip.isPresent()){
             Trip rawTrip = trip.get();
-            List<String> participantToInvite = new ArrayList<>();
-            participantToInvite.add(payload.email());
 
-            this.participantService.registerParticipantsToTrip(rawTrip, participantToInvite);
+            ParticipantCreateResponse participantResponse = this.participantService.registerParticipantToTrip(rawTrip, payload.email());
 
             if(rawTrip.getIsConfirmed()){
                 this.participantService.triggerConfirmationEmailToParticipant(payload.email());
             }
 
-            return ResponseEntity.ok(rawTrip);
+            return ResponseEntity.ok(participantResponse);
         }
 
-        return trip.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/{id}/participants")
